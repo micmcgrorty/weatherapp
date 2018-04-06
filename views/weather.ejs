@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weather in <%= data["query"]["results"]["channel"]["location"]["city"] %>, <%= data["query"]["results"]["channel"]["location"]["country"] %></title>
+        <link rel="stylesheet" type="text/css" href="app.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    </head>
+
+    <body>
+     <div class="container">
+        <h1><%= data["query"]["results"]["channel"]["location"]["city"] %>, <%= data["query"]["results"]["channel"]["location"]["country"] %></h1>
+        <h3>Temp: <%= Math.round((data["query"]["results"]["channel"]["item"]["condition"]["temp"]-32) * 0.56) %>C</h3>
+        <h3>Conditions: <%= data["query"]["results"]["channel"]["item"]["condition"]["text"] %></h3>
+        <h3>Wind: <%= data["query"]["results"]["channel"]["wind"]["speed"] %>mph</h3>
+        <form>
+            <input type="button" class="button" value="Search Again" onclick="window.location.href='/'">
+        </form>
+     </div>
+    </body>
+</html>
